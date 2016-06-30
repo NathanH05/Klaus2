@@ -174,8 +174,34 @@ form .field{display:block;position:relative;padding-bottom:10px}
 
 form .field.error label.error{display:none !important}
 
--------
 
+	ul.tabs{
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		ul.tabs li{
+			background: none;
+			color: #222;
+			display: inline-block;
+			padding: 10px 15px;
+			cursor: pointer;
+		}
+
+		ul.tabs li.current{
+			background: #ededed;
+			color: #222;
+		}
+
+		.tab-content{
+			display: none;
+			background: #ededed;
+			padding: 15px;
+		}
+
+		.tab-content.current{
+			display: inherit;
+		}
 
 .tab-panels ul{
 	margin:0;
@@ -221,7 +247,7 @@ form .field.error label.error{display:none !important}
 
 
 
--------
+
 
 /*add styles here*/
 #logo{
