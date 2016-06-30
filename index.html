@@ -10,30 +10,29 @@
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
 	<script src='jquery.js'></script>
-	<script>
-	window.onload = function() {
-		if (window.jQuery){
-			alert("Yeah");
-		} else {
-			alert("Doesn't Work");
-		}
-	}
-	$(function() {
-		
-			)
 
-		$('.tab-panels .tabs li').on('click',function() {
+	<script type="text/javascript">
+	$(document).ready(function(){
+	
+	$('ul.tabs li').click(function(){
+		var tab_id = $(this).attr('data-tab');
 
-			var panelToShow = $(this).attr('rel');
-			alert(panelToShow);
+		$('ul.tabs li').removeClass('current');
+		$('.tab-content').removeClass('current');
 
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
+	})
 
-
-		});
-		});
-	} 
-
+})
 </script>
+
+
+
+
+
+
+
 	<meta charset="utf-8" />
 
 	<title>Klaus | Your Home Sell Companion</title>
@@ -67,9 +66,11 @@
 	<!--<script type="text/javascript" src="js/jquery.animation.easing.js"></script>-->
 	<!--<script type="text/javascript" src="/js/jquery.wiggle.js"></script>-->
 	
-	
+	 <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 	<style>
-input[type=text], select {
+  
+
+   input[type=text], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -95,7 +96,9 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
-</style>
+      
+    </style>
+ 
 
 </head>
 <body>
@@ -565,112 +568,140 @@ since 1901</p>					<a class="add-hash" href="/projects/birdlife-australia/" >Lau
 
 
 
-<div class="tab-panels">
+<div class="container">
+
 	<ul class="tabs">
-		<li rel="panel1"> Address</li>
-		<li rel="panel2">House Type</li>
-		<li rel="panel3">Sale Type</li>
-		<li rel="panel4">Sale Duration</li>
+		<li class="tab-link current" data-tab="tab-1">Address</li>
+		<li class="tab-link" data-tab="tab-2">House Type</li>
+		<li class="tab-link" data-tab="tab-3">Sale Type</li>
+		<li class="tab-link" data-tab="tab-4">Sale Duration</li>
+	</ul>
+
+	<div id="tab-1" class="tab-content current">
+		
+
+	 <div id="locationField">
+      <input id="autocomplete" placeholder="Enter your address"
+             onFocus="geolocate()" type="text"></input>
+    </div>
+	</div>
+	<div id="tab-2" class="tab-content">
+	Apartment<br/>
+	House</br>
+	Townhouse<br/>
+	Unit<br/>
+	Section<br/>
+	Lifestyle dwelling<br/>
+	Lifestyle bare land<br/>
+	</div>
+	<div id="tab-3" class="tab-content">
+	Auction<br/>
+	Tender<br/>
+	Price By Negotiation<br/>
+	Enquiries Over<br/>
+	Tenders Closing<br/>
+	Deadline Sale<br/>
+	</div>
+	<div id="tab-4" class="tab-content">
+			21 days<br/>
+	28 days<br/>
+	42 days<br/>
+	56 days<br/>
+	</div>
+
+</div><!-- container -->
+
+
+
+
+
+<!--<input id="pac-input" class="controls" type="text" placeholder="Start typing here">-->
+
+
+
+
+<!---<div class="tab-panels">
+	<ul class="tabs">
+		<li rel="panel1" data-tab="tab-1"> Address</li>
+		<li rel="panel2" data-tab="tab-2">House Type</li>
+		<li rel="panel3"  data-tab="tab-3">Sale Type</li>
+		<li rel="panel4" data-tab="tab-4">Sale Duration</li>
 	</ul>
 
 	<div id="panel1" class="panel active">
-	32 Vermont Place, Stonefields<br/>
-	35 Vermont Stree, Remuera<br/>
-	content1<br/>
-	content1<br/>
-	content1<br/>
-	content1<br/>
+	
 	</div>
 
 	<div id="panel2" class="panel">
-	Apartment<br/>
-	Townhouse<br/>
-	content1<br/>
-	content1<br/>
-	content1<br/>
-	content1<br/>
+
 	</div>
 
 	<div id="panel3" class="panel">
-	Auction<br/>
-	Tender<br/>
-	content1<br/>
-	content1<br/>
-	content1<br/>
-	content1<br/>
+
 	</div>
 
 	<div id="panel4" class="panel">
-	21 days<br/>
-	28 days<br/>
-	content1<br/>
-	content1<br/>
-	content1<br/>
-	content1<br/>
+
 	</div>
 
 </div>
+-->
 
 
-
-
-
-<div id = "form">
-  <form action="action_page.php">
-    
-    <!-- The Address Label and text box-->
-    <label for="address">Address</label>
-    <input type="text" id="address" style="padding:5px;" name="firstname" value ="Enter Your Property Address to Begin" onfocus="this.value='';" />
-
-    <!--<label for="Suburb">Suburb</label>
-    <select id="suburb" name="suburb">
-      <option value="Remuera">Remuera</option>
-      <option value="Ponsonby">Ponsonby</option>
-      <option value="Mission Bay">Mission Bay</option>
-      <option value="Mission Bay">Herne Bay</option>
-      <option value="Mission Bay">Auckland Central</option>
-    </select>-->
-  
-
-  <!-- The Type label and select options-->
-  <label for="type" id="type" style="float:left;width:36.3%;display:inline-block;">Type</label>
-
-  <select id="typeSelect" name="Type" >
-     <option label="" selected></option>
-      <option label="Apartment" name="gggg" value="Apartment" type="text" display="none" >Apartment</option>
-      <option label="House" value="House">House</option>
-      <option   label="Townhouse" value="Townhouse">Townhouse</option>
-  </select>
-  
- <!-- The Sale label and options-->
-
- <div id ="sally">
-  <label id="saleLabel" for="sale">Sale</label>
-   <!-- The Sale options-->
-  <select id="sale" name "sale">
-      <option id="Asking Price" label="Asking Price" name="Asking Price" value="Asking Price">Asking Price:</option>
-      <option id="enquiresOver" label="House" value="House">Enquiries Over:</option>
-      <option id="auctionDate" label="Townhouse" value="Townhouse">Auction Date:</option>
-  </select>
-  </div>
-
-   <!-- The Duration label so as to display in-line-->
-  <label for="duration" style="float:right;width:30.3%;display:none;" display="none">Duration</label> 
-
-   <!-- The Duration label and options-->
-   <select id="duration" name "duration" style="display:none;">
-      <option id="twentyOne" label="twentyOne" name="twentyOne" value="twentyOne" type="text" display="none" onfocus="this.value=value">21 days</option>
-      <option id="twentyEight" label="twentyEight" value="twentyEight">28 days</option>
-      <option id="fortyTwo" label="fortyTwo" value="fortyTwo">42 days</option>
-  </select>
-
-   <!-- The Submit button-->
-    <input type="submit" value="Submit">
-  </form>
-</div>
 
 	
 
+
+
+<script>
+      // This example displays an address form, using the autocomplete feature
+      // of the Google Places API to help users fill in the information.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>
 
 
 
@@ -825,9 +856,12 @@ Our creative design and responsive development solutions are second to none.</h2
 </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-1.7.min.js"><\/script>')</script>
+
+<script>window.jQuery || document.write('<script src="query.js"><\/script>')</script>
+
 
 <script src="js/compiled.js"></script>
+
 
 <script>(function() {
   var _fbq = window._fbq || (window._fbq = []);
@@ -846,6 +880,9 @@ window._fbq.push(['track', '6014210340266', {'value':'0.01','currency':'AUD'}]);
 
 <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6014210340266&amp;cd[value]=0.01&amp;cd[currency]=AUD&amp;noscript=1" /></noscript>
 
+
+  <script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyB6oY5RppIQWSmSKgw4sOA21p7S7j9AP-I &libraries=places&callback=initAutocomplete"
+        async defer></script>
 </body>
 
 <!-- Mirrored from carterdigital.com.au/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 Jun 2016 02:39:05 GMT -->
